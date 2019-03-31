@@ -1,12 +1,6 @@
-#Options -Indexes
 Options -MultiViews
 
 RewriteEngine On
-
-RewriteCond %{HTTP_HOST} galeadigital\.com [NC]
-RewriteCond %{SERVER_PORT} 80
-
-RewriteRule ^(.*)$ https://www.galeadigital.com/$1 [R=301,NE]
 
 RewriteBase /
 
@@ -15,3 +9,7 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA]
 
+RewriteCond %{HTTPS} off
+RewriteCond www.%{HTTP_HOST} ^(?:www\.)?(www\..+)$ [NC]
+
+RewriteRule ^ https://%1%{REQUEST_URI} [NE,L,R]

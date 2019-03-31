@@ -2,5 +2,3 @@ Options -Indexes
 
 CheckSpelling Off
 AddType x-httpd-php56 .php
-#
-#
