@@ -12,6 +12,7 @@ class Controller
     {
         require_once '../app/views/' . $view . '/index.php';
     }
+<<<<<<< HEAD
 
     public function checkInput($input)
     {
@@ -21,4 +22,6 @@ class Controller
         return $input;
     }
 
+=======
+>>>>>>> 43ba814043711368a5a1eccccbdb16eea1678fd3
 }
