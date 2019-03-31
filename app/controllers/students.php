@@ -1,0 +1,163 @@
+<?php
+session_start();
+
+class Students extends Controller
+{   
+    // Any parameters to be passed when calling a view
+    protected $data, $student, $user;
+
+    function __construct()
+    {
+        // Check to see who is logged in and requesting this
+        $userRole = $_SESSION['userRole'];
+        // User must have role 'SA' or 'A' to access this function
+        if($userRole != "SA" && $userRole != "A") 
+        {
+            //exit();
+            $this->data['error'] = "Page not found.";
+            parent::view('error', $this->data);// If not authorized - call error view and pass on error
+            exit();// Stop running the Students controller
+        }
+    
+        // Prepare the form for validation - mark the mandatory fields
+        $this->data['error']['forename'] = "*";
+        $this->data['error']['lastName'] = "*";
+        $this->data['error']['gender'] = "*";
+        $this->data['error']['DOB'] = "*";
+        $this->data['error']['UPN'] = "*";
+        $this->data['error']['UCI'] = "*";
+        $this->data['error']['nCyearActual'] = "*";
+        $this->data['error']['ethnicity'] = "*";
+        $this->data['error']['ethnicitySource'] = "*";
+    }
+
+    public function index()
+    {
+        // Main function of the Students Controller
+        parent::view('studentAdminDash', $this->data);
+    }
+
+    public function addStudent()
+    {
+        if (isset($_POST['addStudent']))
+        {
+            
+            // Load and instantiate the user & student models
+            $this->student = parent::model('user');
+            $this->student = parent::model('student');
+
+            /*  Beginning of input validation   */
+            $inputValid = true;
+            // Check fields and stop validation if any errors
+            if (empty($_POST['forename']))
+            {
+                $inputValid = false;
+                $this->data['error']['forename'] = "User field cannot empty";
+            }
+            if (empty($_POST['lastName']))
+            {
+                $inputValid = false;
+                $this->data['error']['lastName'] = "Last Name field cannot empty";
+            }
+            // Non Mandatory fields
+            if (!empty($_POST['middleName1'])) { $this->student->setMiddleName1(parent::checkInput($_POST['middleName1'])); }
+            if (!empty($_POST['middleName2'])) { $this->student->setMiddleName2(parent::checkInput($_POST['middleName2'])); }
+            if (empty($_POST['gender']))
+            {
+                $inputValid = false;
+                $this->data['error']['gender'] = "Gender field cannot empty";
+            }
+            if (empty($_POST['DOB']))
+            {
+                $inputValid = false;
+                $this->data['error']['DOB'] = "Date Of Birth field cannot empty";
+            }
+            if (empty($_POST['UPN']))
+            {
+                $inputValid = false;
+                $this->data['error']['UPN'] = "UPN field cannot empty";
+                // Add format validation here
+            }
+            else if (strlen($_POST['UPN']) < 10)
+            {
+                $inputValid = false;
+                $this->data['error']['UPN'] = "UPN must be 10 chars long and the first 3 chars must be letters.";
+            }
+            if (empty($_POST['UCI']))
+            {
+                $inputValid = false;
+                $this->data['error']['UCI'] = "UCI field cannot empty";
+            }
+            else if (strlen($_POST['UCI']) < 10)
+            {
+                $inputValid = false;
+                $this->data['error']['UCI'] = "UCI must be 13 chars long and the first 5 chars must be letters.";
+            }
+
+            // Non Mandatory fields
+            if (!empty($_POST['formerUPN'])) { $this->student->setFormerUPN(parent::checkInput($_POST['formerUPN'])); }
+            if (!empty($_POST['formerSN'])) { $this->student->setFormerSN(parent::checkInput($_POST['formerSN'])); }
+            if (!empty($_POST['prefSN'])) { $this->student->setPrefSN(parent::checkInput($_POST['prefSN'])); }
+            if (!empty($_POST['prefFN'])) { $this->student->setPrefFN(parent::checkInput($_POST['prefFN'])); }
+
+            if (empty($_POST['nCyearActual']))
+            {
+                $inputValid = false;
+                $this->data['error']['nCyearActual'] = "Year Group field cannot empty";
+            }
+            if (empty($_POST['ethnicity']))
+            {
+                $inputValid = false;
+                $this->data['error']['ethnicity'] = "Ethnicity field cannot empty";
+            }
+            if (empty($_POST['ethnicitySource']))
+            {
+                $inputValid = false;
+                $this->data['error']['ethnicitySource'] = "Ethnicity Source field cannot empty";
+            }
+            /*  End of input validation   */
+
+            if ($inputValid === true)
+            {
+                // 1. Build user object using POST data
+                $this->student->setForename(parent::checkInput($_POST['forename']));
+                $this->student->setlAstName(parent::checkInput($_POST['lastName']));
+                $this->student->setGender($_POST['gender']);
+                $this->student->setDob($_POST['DOB']);
+                $this->student->setRole("S");
+                $this->student->genUsername();
+                $this->student->setPassHash(md5("Password1"));
+                $this->student->calcAge();
+                $this->student->calcTitle();
+                // 2. Add user to DB
+                $this->student->addUserToDB();
+                // 3. Get new User ID from DB;
+                $this->student->populateFromDb();
+                // 4. Build new Student object using POST data;
+                $this->student->setUserID($this->student->getId());
+                $this->student->setUPN(parent::checkInput($_POST['UPN']));
+                $this->student->setUCI(parent::checkInput($_POST['UCI']));
+                $this->student->setNCYearActual($_POST['nCyearActual']);
+                $this->student->setEthnicity($_POST['ethnicity']);
+                $this->student->setEthnicitySource($_POST['ethnicitySource']);
+                // 5. Add Student to DB;
+                $this->student->addStudentToDB();
+                // 6. Process complete. Show confirmation.
+                parent::view('studentAdded', $this->data);
+                exit();// All good, stop script upon showing confirmation
+            }
+            // If this runs - there were errors when submitting the form
+            parent::view('addStudent', $this->data);
+        }
+        else
+        {
+            // No POST data - no form submission, load the form 
+            parent::view('addStudent', $this->data);
+        }
+    }
+
+    public function findStudent()
+    {
+        
+    }
+}
