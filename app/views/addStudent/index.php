@@ -2,7 +2,7 @@
 
     <div class="sidebar">
         <a href="https://www.galeadigital.com/dashboard/index"><i class="fa fa-fw fa-home"></i> Home</a>
-        <a href="https://www.galeadigital.com/staff/"><i class="fa fa-fw fa-wrench"></i> Staff</a>
+        <a href="https://www.galeadigital.com/staff/index"><i class="fa fa-fw fa-wrench"></i> Staff</a>
         <a href="https://www.galeadigital.com/students/index"><i class="fa fa-fw fa-wrench"></i> Students</a>
         <a href="#Admin"><i class="fa fa-fw fa-user"></i> Admin</a>
         <a href="#Timetables"><i class="fa fa-fw fa-envelope"></i> Timetables</a>
