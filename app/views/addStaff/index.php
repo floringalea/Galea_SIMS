@@ -16,6 +16,8 @@
         <h1>Add Admin Staff</h1>
     </div>
 
+    <!--============================== Form ==============================-->
+    <!----------------------- Personal Details ----------------------->
     <div class="col-lg-4">
     <form class="form-inline" action="" method="post">
         <hr>
@@ -49,16 +51,6 @@
                 <option selected disabled hidden></option>
                 <option>M</option>
                 <option>F</option>
-                <?php
-                    /*$exc=mysqli_query($conn,"SELECT * FROM class");
-                    while($cls=mysqli_fetch_assoc($exc)){
-                    ?>
-                    <option value="<?=$cls['id']?>">
-                        <?=$cls['class_name']?>
-                    </option>
-                    <?php
-                    }*/
-                ?>
             </select>
             <span class="error"><?php echo $data['error']['gender'] ?></span>
         </div>
@@ -69,16 +61,6 @@
                 <option selected disabled hidden></option>
                 <option>SA</option>
                 <option>A</option>
-                <?php
-                    /*$exc=mysqli_query($conn,"SELECT * FROM class");
-                    while($cls=mysqli_fetch_assoc($exc)){
-                    ?>
-                    <option value="<?=$cls['id']?>">
-                        <?=$cls['class_name']?>
-                    </option>
-                    <?php
-                    }*/
-                ?>
             </select>
             <span class="error"><?php echo $data['error']['role'] ?></span>
         </div>
@@ -88,7 +70,8 @@
             <input type="date" name="DOB" class="form-control" id="" placeholder="Date of Birth">
             <span class="error"><?php echo $data['error']['DOB'] ?></span>
         </div>
-
+        
+        <!----------------------- Employment Details ----------------------->
         <div class="form-group">
             <label for="">Position</label>
             <input type="text" name="subject" class="form-control" id="" placeholder="Position">
@@ -101,12 +84,60 @@
             <span class="error"><?php echo $data['error']['startDate'] ?></span>
         </div>
 
+        <!----------------------- Contact Details ----------------------->
         <div class="form-group">
-        <label for=""></label>
-        <input type="submit" class="btn btn-primary form-control" name="addStaff" value="Add Staff" id="">
-        <!-- <p class="help-block">Help text here.</p> -->
+            <label for="">House Number</label>
+            <input type="text" name="houseNo" class="form-control" id="" placeholder="House Number">
+            <span class="error"><?php echo $data['error']['houseNo'] ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Flat</label>
+            <input type="text" name="flatNo" class="form-control" id="" placeholder="Flat Number">
+            <span class="error"><?php echo $data['error']['flatNo'] ?></span>
+        </div>
+        <div class="form-group">
+            <label for="">Street</label>
+            <input type="text" name="streetName" class="form-control" id="" placeholder="Street Name">
+            <span class="error"><?php echo $data['error']['streetName'] ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Post Code</label>
+            <input type="date" name="postCode" class="form-control" id="" placeholder="Post Code">
+            <span class="error"><?php echo $data['error']['postCode'] ?></span>
+        </div>
+        <div class="form-group">
+            <label for="">County</label>
+            <input type="text" name="countyName" class="form-control" id="" placeholder="County">
+            <span class="error"><?php echo $data['error']['countyName'] ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Town</label>
+            <input type="text" name="townName" class="form-control" id="" placeholder="Town">
+            <span class="error"><?php echo $data['error']['townName'] ?></span>
+        </div>
+        <div class="form-group">
+            <label for="">City</label>
+            <input type="text" name="cityName" class="form-control" id="" placeholder="City">
+            <span class="error"><?php echo $data['error']['streetName'] ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Country</label>
+            <input type="date" name="countryName" class="form-control" id="" placeholder="Country">
+            <span class="error"><?php echo $data['error']['countryName'] ?></span>
+        </div>
+        <!----------------------- Button ----------------------->            
+        <div class="form-group">
+            <label for=""></label>
+            <input type="submit" class="btn btn-primary form-control" name="addStaff" value="Add Staff" id="">
+            <!-- <p class="help-block">Help text here.</p> -->
         </div>
         
     </form>
+    </div>
+    <!--============================== End of Form ==============================-->
 
   <?php include_once('../app/views/templates/footer.php') ?>
