@@ -19,29 +19,24 @@ class Staff extends Controller
         }
 
         // Prepare the form for validation - mark the mandatory fields
-        $this->data['error']['forename'] = "*";
-        $this->data['error']['lastName'] = "*";
-        $this->data['error']['gender'] = "*";
-        $this->data['error']['DOB'] = "*";
-        $this->data['error']['role'] = "*";
-        $this->data['error']['ethnicity'] = "*";
-        $this->data['error']['ethnicitySource'] = "*";
-        $this->data['error']['subject'] = "*";
-        $this->data['error']['position'] = "*";
-        $this->data['error']['startDate'] = "*";
-
-        $this->data['error']['houseNo'] = "*";
-        //$this->data['error']['flatNo'] = "*";
-        $this->data['error']['streetName'] = "*";
-        $this->data['error']['postCode'] = "*";
-        //$this->data['error']['countyName'] = "*";
-        $this->data['error']['townName'] = "*";
-        $this->data['error']['streetName'] = "*";
-        $this->data['error']['countryName'] = "*";
-        $this->data['error']['staffEmail'] = "*";
-        $this->data['error']['homeTelNo'] = "*";
-        $this->data['error']['mobTelNo'] = "*";
-        
+        $this->data['error'] = [ 'forename' => '*',
+                                 'lastName' => '*',
+                                 'gender' => '*',
+                                 'DOB' => '*',
+                                 'role' => '*',
+                                 'subject' => '*',
+                                 'position' => '*',
+                                 'startDate' => '*',
+                                 'houseNo' => '*',
+                                 'streetNo' => '*',
+                                 'streetName' => '*',
+                                 'postCode' => '*',
+                                 'townName' => '*',
+                                 'cityName' => '*',
+                                 'countryName' => "*",
+                                 'staffEmail' => "*",
+                                 'homeTelNo' => '*',
+                                 'mobTelNo' => '*' ];
     }
 
     public function index()
@@ -89,16 +84,15 @@ class Staff extends Controller
                 $inputValid = false;
                 $this->data['error']['DOB'] = "Date Of Birth field cannot empty";
             }
-
-            if (empty($_POST['houseNo']))
-            {
-                $inputValid = false;
-                $this->data['error']['houseNo'] = "House Number field cannot empty";
-            }
-            // Non Mandatory contact details fields0
+            // Non Mandatory contact details fields
+            if (!empty($_POST['houseName'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['houseName'])); }
             if (!empty($_POST['flatNo'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['flatNo'])); }
             if (!empty($_POST['countyName'])) { $this->admin->setMiddleName2(parent::checkInput($_POST['countyName'])); }
-            
+            if (empty($_POST['streetNo']))
+            {
+                $inputValid = false;
+                $this->data['error']['streetNo'] = "Street Number field cannot empty";
+            }
             if (empty($_POST['streetName']))
             {
                 $inputValid = false;
@@ -113,6 +107,11 @@ class Staff extends Controller
             {
                 $inputValid = false;
                 $this->data['error']['townName'] = "Town field cannot empty";
+            }
+            if (empty($_POST['cityName']))
+            {
+                $inputValid = false;
+                $this->data['error']['cityName'] = "City field cannot empty";
             }
             if (empty($_POST['countryName']))
             {
