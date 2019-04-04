@@ -92,19 +92,19 @@
         </div>
 
         <div class="form-group">
-            <label for="">House Number</label>
-            <input type="text" name="houseNo" class="form-control" id="" placeholder="House Number">
-            <span class="error"><?php echo $data['error']['houseNo'] ?></span>
-        </div>
-
-        <div class="form-group">
             <label for="">Flat</label>
             <input type="text" name="flatNo" class="form-control" id="" placeholder="Flat Number">
             <span class="error"><?php echo $data['error']['flatNo'] ?></span>
         </div>
 
         <div class="form-group">
-            <label for="">Street</label>
+            <label for="">Street Number</label>
+            <input type="text" name="streetNo" class="form-control" id="" placeholder="Street Number">
+            <span class="error"><?php echo $data['error']['streetNo'] ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">Street Name</label>
             <input type="text" name="streetName" class="form-control" id="" placeholder="Street Name">
             <span class="error"><?php echo $data['error']['streetName'] ?></span>
         </div>
@@ -141,7 +141,7 @@
 
         <!----------------------- Personal email ----------------------->
         <div class="form-group">
-            <label for="">Staff Personal Email Address</label>
+            <label for="">Personal Email Address</label>
             <input type="email" name="staffEmail" class="form-control" id="" placeholder="Email">
             <span class="error"><?php echo $data['error']['staffEmail'] ?></span>
         </div>
