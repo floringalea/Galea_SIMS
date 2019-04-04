@@ -29,6 +29,19 @@ class Staff extends Controller
         $this->data['error']['subject'] = "*";
         $this->data['error']['position'] = "*";
         $this->data['error']['startDate'] = "*";
+
+        $this->data['error']['houseNo'] = "*";
+        //$this->data['error']['flatNo'] = "*";
+        $this->data['error']['streetName'] = "*";
+        $this->data['error']['postCode'] = "*";
+        //$this->data['error']['countyName'] = "*";
+        $this->data['error']['townName'] = "*";
+        $this->data['error']['streetName'] = "*";
+        $this->data['error']['countryName'] = "*";
+        $this->data['error']['staffEmail'] = "*";
+        $this->data['error']['homeTelNo'] = "*";
+        $this->data['error']['mobTelNo'] = "*";
+        
     }
 
     public function index()
@@ -58,7 +71,7 @@ class Staff extends Controller
                 $inputValid = false;
                 $this->data['error']['lastName'] = "Last Name field cannot empty";
             }
-            // Non Mandatory fields
+            // Non Mandatory personal details fields
             if (!empty($_POST['middleName1'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['middleName1'])); }
             if (!empty($_POST['middleName2'])) { $this->admin->setMiddleName2(parent::checkInput($_POST['middleName2'])); }
             if (empty($_POST['gender']))
@@ -75,6 +88,51 @@ class Staff extends Controller
             {
                 $inputValid = false;
                 $this->data['error']['DOB'] = "Date Of Birth field cannot empty";
+            }
+
+            if (empty($_POST['houseNo']))
+            {
+                $inputValid = false;
+                $this->data['error']['houseNo'] = "House Number field cannot empty";
+            }
+            // Non Mandatory contact details fields0
+            if (!empty($_POST['flatNo'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['flatNo'])); }
+            if (!empty($_POST['countyName'])) { $this->admin->setMiddleName2(parent::checkInput($_POST['countyName'])); }
+            
+            if (empty($_POST['streetName']))
+            {
+                $inputValid = false;
+                $this->data['error']['streetName'] = "Street Name field cannot empty";
+            }
+            if (empty($_POST['postCode']))
+            {
+                $inputValid = false;
+                $this->data['error']['postCode'] = "Post Code field cannot empty";
+            }
+            if (empty($_POST['townName']))
+            {
+                $inputValid = false;
+                $this->data['error']['townName'] = "Town field cannot empty";
+            }
+            if (empty($_POST['countryName']))
+            {
+                $inputValid = false;
+                $this->data['error']['countryName'] = "Country field cannot empty";
+            }
+            if (empty($_POST['staffEmail']))
+            {
+                $inputValid = false;
+                $this->data['error']['staffEmail'] = "Email field cannot empty";
+            }
+            if (empty($_POST['homeTelNo']))
+            {
+                $inputValid = false;
+                $this->data['error']['homeTelNo'] = "Home telephone number field cannot empty";
+            }
+            if (empty($_POST['mobTelNo']))
+            {
+                $inputValid = false;
+                $this->data['error']['mobTelNo'] = "Mobile telephone number field cannot empty";
             }
             /*    End of input validation   */
 
