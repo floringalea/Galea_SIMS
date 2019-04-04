@@ -86,6 +86,12 @@
 
         <!----------------------- Contact Details ----------------------->
         <div class="form-group">
+            <label for="">House Name</label>
+            <input type="text" name="houseName" class="form-control" id="" placeholder="House Name">
+            <span class="error"><?php echo $data['error']['houseName'] ?></span>
+        </div>
+
+        <div class="form-group">
             <label for="">House Number</label>
             <input type="text" name="houseNo" class="form-control" id="" placeholder="House Number">
             <span class="error"><?php echo $data['error']['houseNo'] ?></span>
@@ -96,6 +102,7 @@
             <input type="text" name="flatNo" class="form-control" id="" placeholder="Flat Number">
             <span class="error"><?php echo $data['error']['flatNo'] ?></span>
         </div>
+
         <div class="form-group">
             <label for="">Street</label>
             <input type="text" name="streetName" class="form-control" id="" placeholder="Street Name">
@@ -104,9 +111,10 @@
 
         <div class="form-group">
             <label for="">Post Code</label>
-            <input type="date" name="postCode" class="form-control" id="" placeholder="Post Code">
+            <input type="text" name="postCode" class="form-control" id="" placeholder="Post Code">
             <span class="error"><?php echo $data['error']['postCode'] ?></span>
         </div>
+
         <div class="form-group">
             <label for="">County</label>
             <input type="text" name="countyName" class="form-control" id="" placeholder="County">
@@ -118,17 +126,40 @@
             <input type="text" name="townName" class="form-control" id="" placeholder="Town">
             <span class="error"><?php echo $data['error']['townName'] ?></span>
         </div>
+
         <div class="form-group">
             <label for="">City</label>
             <input type="text" name="cityName" class="form-control" id="" placeholder="City">
-            <span class="error"><?php echo $data['error']['streetName'] ?></span>
+            <span class="error"><?php echo $data['error']['cityName'] ?></span>
         </div>
 
         <div class="form-group">
             <label for="">Country</label>
-            <input type="date" name="countryName" class="form-control" id="" placeholder="Country">
+            <input type="text" name="countryName" class="form-control" id="" placeholder="Country">
             <span class="error"><?php echo $data['error']['countryName'] ?></span>
         </div>
+
+        <!----------------------- Personal email ----------------------->
+        <div class="form-group">
+            <label for="">Staff Personal Email Address</label>
+            <input type="email" name="staffEmail" class="form-control" id="" placeholder="Email">
+            <span class="error"><?php echo $data['error']['staffEmail'] ?></span>
+        </div>
+
+        <!----------------------- Telephones ----------------------->
+        <div class="form-group">
+            <label for="">Home Telephone Number</label>
+            <input type="tel" name="homeTelNo" class="form-control" id="" placeholder="Home Telephone">
+            <span class="error"><?php echo $data['error']['homeTelNo'] ?></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="">Mobile telephone number</label>
+            <input type="tel" name="mobTelNo" class="form-control" id="" placeholder="Mobile Number">
+            <span class="error"><?php echo $data['error']['mobTelNo'] ?></span>
+        </div>
+
+
         <!----------------------- Button ----------------------->            
         <div class="form-group">
             <label for=""></label>
@@ -137,7 +168,6 @@
         </div>
         
     </form>
-    </div>
     <!--============================== End of Form ==============================-->
 
   <?php include_once('../app/views/templates/footer.php') ?>
