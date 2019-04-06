@@ -49,21 +49,18 @@ class User
                 $query->bind_param("s", $this->userId);
                 $query->execute();
                 $result = $query->get_result();
-                
-
                 while ($row = $result->fetch_row())
-                    {
-                        echo($row['0']);
-                    }
-
-            } else
+                {
+                    echo($row['0']);
+                }
+            } 
+            else
             {
                 die('Error: Could not prepare MySQLi statement');
             }
         }
     }
 
-    
     // ------ THE GETTERS ------
     // Get name
     public function getName()
@@ -224,7 +221,7 @@ class User
         // Adds record to 'User' table in db
         require_once '../app/config.php';
 
-            if ($query = $conn->prepare("INSERT INTO User (Title, Forename, MiddleName1, MiddleName2, LastName, Username, PassHash, Age, Gender, DOB, Role) 
+            if ($insQuery = $conn->prepare("INSERT INTO User (Title, Forename, MiddleName1, MiddleName2, LastName, Username, PassHash, Age, Gender, DOB, Role) 
                                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))
             {   
                 // Check to see if record already exists
@@ -235,8 +232,9 @@ class User
                 if ($queryId->num_rows === 0)
                 {   
                     // No duplicate found, so bind the properties to the query and fire away
-                    $query->bind_param("sssssssisss", $this->title, $this->forename, $this->middleName1, $this->middleName2, $this->lastName, $this->username, $this->passHash, $this->age, $this->gender, $this->dob, $this->role);
-                    $query->execute();
+                    $insQuery->bind_param("sssssssisss", $this->title, $this->forename, $this->middleName1, $this->middleName2, $this->lastName, $this->username, $this->passHash, $this->age, $this->gender, $this->dob, $this->role);
+                    $insQuery->execute();
+
                 } 
                 else
                 {
@@ -248,6 +246,112 @@ class User
                 die('Error: addToDB : Could not prepare MySQLi statement');
             }
 
+    }
+    // Function to add the user id and adress id in the UserAddress bridging tabe
+    function addUserAddressToDB($addressId)
+    {
+        require '../app/config.php';
+
+        $userId = $this->getId();
+
+        if ($insQuery = $conn->prepare("INSERT INTO UserAddress (UserId, AddressId) VALUES (?, ?)"))
+        {   
+            // Check to see if record already exists
+            $queryId = $conn->prepare("SELECT * from UserAddress WHERE UserId = ? AND AddressId = ?");
+            $queryId->bind_param("is", $userId, $addressId);
+            $queryId->execute();
+            $queryId->store_result();
+            if ($queryId->num_rows === 0)
+            {   
+                // No duplicate found, so bind the properties to the query and fire away
+                $insQuery->bind_param("is", $userId, $addressId);
+                $insQuery->execute();
+            } 
+            else
+            {
+                die('Error: addToDB : Duplicate entry. Record already exists.');
+            }
+        }
+        else
+        {
+            die('Error: addToDB : Could not prepare MySQLi statement');
+        }
+    }
+
+    function addUserContToDB($emailId, $hPhoneId, $mPhoneId)
+    {
+        require '../app/config.php';
+
+        $userId = $this->getId();
+        // Email
+        if ($userEmailQuery = $conn->prepare("INSERT INTO UserEmails (UserId, MailId) VALUES (?, ?)"))
+        {   
+            // Check to see if record already exists
+            $queryId = $conn->prepare("SELECT * from UserEmails WHERE UserId = ? AND MailId = ?");
+            $queryId->bind_param("ii", $userId, $emailId);
+            $queryId->execute();
+            $queryId->store_result();
+            if ($queryId->num_rows === 0)
+            {   
+                // No duplicate found, so bind the properties to the query and fire away
+                $userEmailQuery->bind_param("ii", $userId, $emailId);
+                $userEmailQuery->execute();
+            } 
+            else
+            {
+                die('Error: addUserContToDB : Email : Duplicate entry. Record already exists.');
+            }
+        }
+        else
+        {
+            die('Error: addUserContToDB : Email : Could not prepare MySQLi statement');
+        }
+        // Home Telephone
+        if ($userHPhoneQuery = $conn->prepare("INSERT INTO UserPhones (UserId, PhoneId) VALUES (?, ?)"))
+        {   
+            // Check to see if record already exists
+            $queryId = $conn->prepare("SELECT * from UserPhones WHERE UserId = ? AND PhoneId = ?");
+            $queryId->bind_param("ii", $userId, $hPhoneId);
+            $queryId->execute();
+            $queryId->store_result();
+            if ($queryId->num_rows === 0)
+            {   
+                // No duplicate found, so bind the properties to the query and fire away
+                $userHPhoneQuery->bind_param("ii", $userId, $hPhoneId);
+                $userHPhoneQuery->execute();
+            } 
+            else
+            {
+                die('Error: addUserContToDB : Home Telephone : Duplicate entry. Record already exists.');
+            }
+        }
+        else
+        {
+            die('Error: addUserContToDB : Home Telephone : Could not prepare MySQLi statement');
+        }
+        // Mobile Phone
+        if ($userMPhoneQuery = $conn->prepare("INSERT INTO UserPhones (UserId, PhoneId) VALUES (?, ?)"))
+        {   
+            // Check to see if record already exists
+            $queryId = $conn->prepare("SELECT * from UserPhones WHERE UserId = ? AND PhoneId = ?");
+            $queryId->bind_param("ii", $userId, $mPhoneId);
+            $queryId->execute();
+            $queryId->store_result();
+            if ($queryId->num_rows === 0)
+            {   
+                // No duplicate found, so bind the properties to the query and fire away
+                $userMPhoneQuery->bind_param("ii", $userId, $mPhoneId);
+                $userMPhoneQuery->execute();
+            } 
+            else
+            {
+                die('Error: addUserContToDB : Home Telephone : Duplicate entry. Record already exists.');
+            }
+        }
+        else
+        {
+            die('Error: addUserContToDB : Home Telephone : Could not prepare MySQLi statement');
+        }
     }
 
     protected function authenticate()
