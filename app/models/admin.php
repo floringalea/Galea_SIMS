@@ -29,7 +29,7 @@ class Admin extends User
                 // No duplicate found, so bind the properties to the query and fire away
                 $query->bind_param("i", $this->userId);
                 $query->execute();
-            } 
+            }
             else
             {
                 die('Error: addToDB : Duplicate entry. Record already exists.');
