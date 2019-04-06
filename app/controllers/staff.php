@@ -51,11 +51,16 @@ class Staff extends Controller
         {
             // Load and instantiate the user model
             $this->admin = parent::model('user');
+            // Amin model - add user to Admin table
             $this->admin = parent::model('admin');
+            // Address model - handle address input
+            $this->address = parent::model('address');
+            // UserContact model - handle email and phones
+            $this->userContact = parent::model('userContact');
 
             /*   Beginning of input validation   */
             $inputValid = true;
-            // Check fields and stop validation if any errors
+            // Personal details
             if (empty($_POST['forename']))
             {
                 $inputValid = false;
@@ -84,10 +89,11 @@ class Staff extends Controller
                 $inputValid = false;
                 $this->data['error']['DOB'] = "Date Of Birth field cannot empty";
             }
+            // Address
             // Non Mandatory contact details fields
-            if (!empty($_POST['houseName'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['houseName'])); }
-            if (!empty($_POST['flatNo'])) { $this->admin->setMiddleName1(parent::checkInput($_POST['flatNo'])); }
-            if (!empty($_POST['countyName'])) { $this->admin->setMiddleName2(parent::checkInput($_POST['countyName'])); }
+            if (!empty($_POST['houseName'])) { $this->address->setHouseName(parent::checkInput($_POST['houseName'])); }
+            if (!empty($_POST['flatNo'])) { $this->address->setFlatNo(parent::checkInput($_POST['flatNo'])); }
+            if (!empty($_POST['countyName'])) { $this->address->setCounty(parent::checkInput($_POST['countyName'])); }
             if (empty($_POST['streetNo']))
             {
                 $inputValid = false;
@@ -118,11 +124,13 @@ class Staff extends Controller
                 $inputValid = false;
                 $this->data['error']['countryName'] = "Country field cannot empty";
             }
+            // Email
             if (empty($_POST['staffEmail']))
             {
                 $inputValid = false;
                 $this->data['error']['staffEmail'] = "Email field cannot empty";
             }
+            // Tel
             if (empty($_POST['homeTelNo']))
             {
                 $inputValid = false;
@@ -154,7 +162,26 @@ class Staff extends Controller
                 // 4. Set UserId property on new admin record then add record to Admin table;
                 $this->admin->setId($this->admin->getId());
                 $this->admin->addAdminToDB();
-                // 6. Process complete. Show confirmation.
+                // 5. Build Address Object from POST data
+                $this->address->setStreetNo(parent::checkInput($_POST['streetNo']));
+                $this->address->setStreet(parent::checkInput($_POST['streetName']));
+                $this->address->setPostCode(parent::checkInput($_POST['postCode']));
+                $this->address->setTown(parent::checkInput($_POST['townName']));
+                $this->address->setCity(parent::checkInput($_POST['cityName']));
+                $this->address->setCountry(parent::checkInput($_POST['countryName']));
+                // 6. Add Address to DB
+                $this->address->addAddrToDB();
+                // 7. Add UserId and AddressId to UserAddress bridge table
+                $this->admin->addUserAddressToDB($this->address->getAddressId());
+                // 8. Build UserContact Object from POST data
+                $this->userContact->setEmailAddress(parent::checkInput($_POST['staffEmail']));
+                $this->userContact->setHomePhone(parent::checkInput($_POST['homeTelNo']));
+                $this->userContact->setMobPhone(parent::checkInput($_POST['mobTelNo']));
+                // 9. Add Email & Phone Nos to DB
+                $this->userContact->addContToDB();
+                // 10. Add UserId and EmailId to UserEmails bridge table
+                $this->admin->addUserContToDB($this->userContact->getMailId(), $this->userContact->getHomePhoneId(), $this->userContact->getMobPhoneId());
+                // 11. Process complete. Show confirmation.
                 parent::view('studentAdded', $this->data);
                 exit();// All good, stop script upon showing confirmation
             }
