@@ -34,7 +34,7 @@
                         <input type="text" name="middleName2" class="form-control" id="" placeholder="By Second Middle Name">
                     </div>
                     <div class="form-group">
-                        <label for="lastName">By Last Name</label>
+                        <label for="lastName">By Surname</label>
                         <input type="text" name="lastName" class="form-control" id="" placeholder="By Surname">
                     </div>
                 </div>
@@ -46,6 +46,38 @@
             </div>
         </form>
     </div>
+</div>
+
+<div class=container>
+    <table class="table">
+        <caption>Students</caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Foername</th>
+                <th>Surname</th>
+                <th>Year Group</th>
+                <th>Class</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                $i = 0;
+                foreach($data as $student)
+                {
+                    $i++;
+                    //print_r($student);
+                    echo '
+                            <tr>
+                                <th scope="row">'.$i.'</th>
+                                <td><a href="https://www.galeadigital.com/students/viewStudent/'.$student['UserId'].'">'.$student['Forename'].'</a></td>
+                                <td><a href="https://www.galeadigital.com/students/viewStudent/'.$student['UserId'].'">'.$student['LastName'].'</a></td>
+                                <td><a href="https://www.galeadigital.com/students/viewStudent/'.$student['UserId'].'">'.$student['nCyearActual'].'</a></td>
+                            </tr>';
+                }
+            ?>
+        </tbody>
+    </table>
 </div>
 
 <?php include_once('../app/views/templates/footer.php') ?>
