@@ -34,7 +34,13 @@ class Students extends Controller
     public function index()
     {
         // Main function of the Students Controller
-        parent::view('studentAdminDash', $this->data);
+        // Get students from DB and display them within the StudentAdminDash view
+        $finder = parent::model("user");
+        $finder = parent::model("finder");
+        // Get all students from DB
+        $studData = $finder->getStudentUsersFromDB();
+        // Pass them on to the StudentAdminDash view
+        parent::view('studentAdminDash', $studData);
     }
 
     public function addStudent()
@@ -159,5 +165,26 @@ class Students extends Controller
     public function findStudent()
     {
         
+    }
+
+    // Function to display student details page
+    public function viewStudent($userId)
+    {
+        $studObj = parent::model('user');
+        $studObj = parent::model('student');
+        $addrObj = parent::model('address');
+        $userContObj = parent::model('userContact');
+
+        $studObj->setId($userId);
+        $studObj->populateFromDb();
+        $studObj->popStudFromDb();
+        $addrObj->getuserAddressFromDb($studObj->getId());
+        $userContObj->getuserContFromDb($studObj->getId());
+
+        $studentData['student'] = $studObj;
+        $studentData['address'] = $addrObj;
+        $studentData['contact'] = $userContObj;
+
+        parent::view('viewStudent', $studentData);
     }
 }
