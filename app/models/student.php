@@ -148,14 +148,13 @@ class Student extends User
                     $this->formerSn = $row['4'];
                     $this->prefSn = $row['5'];
                     $this->prefFn = $row['6'];
-                    $this->gender = $row['7'];
-                    $this->nCYearActual = $row['8'];
-                    $this->ethnicity = $row['9'];
-                    $this->ehtnicitySource = $row['10'];
-                    $this->medicalFlag = $row['11'];
-                    $this->disabFlag = $row['12'];
-                    $this->enrolStatus = $row['13'];
-                    $this->inCare = $row['14'];
+                    $this->nCYearActual = $row['7'];
+                    $this->ethnicity = $row['8'];
+                    $this->ehtnicitySource = $row['9'];
+                    $this->medicalFlag = $row['10'];
+                    $this->disabFlag = $row['11'];
+                    $this->enrolStatus = $row['12'];
+                    $this->inCare = $row['13'];
                 }
 
             } else
