@@ -33,14 +33,27 @@ class Students extends Controller
 
     public function index()
     {
-        // Main function of the Students Controller
+        // Main method for the Students Controller
+
         // Get students from DB and display them within the StudentAdminDash view
         $finder = parent::model("user");
         $finder = parent::model("finder");
-        // Get all students from DB
-        $studData = $finder->getStudentUsersFromDB();
-        // Pass them on to the StudentAdminDash view
-        parent::view('studentAdminDash', $studData);
+        
+        // If search form has been submitted and search string is not empty
+		if(isset($_POST['studentSearch']) && $_POST['studSearch'] != "")
+		{
+            /* Grab the search string, pass it to finder's searchForStudent function,
+            then pass the result to a call to the studentAdminDash view*/
+			$studData = $finder->searchForStudent($_POST['studSearch']);
+			parent::view('studentAdminDash', $studData);
+		}
+		else
+		{
+			// Get all students from DB - if no search has been performed
+			$studData = $finder->getStudentUsersFromDB();
+			// Pass them on to the StudentAdminDash view
+			parent::view('studentAdminDash', $studData);
+		}
     }
 
     public function addStudent()
@@ -162,12 +175,7 @@ class Students extends Controller
         }
     }
 
-    public function findStudent()
-    {
-        
-    }
-
-    // Function to display student details page
+    // Method to display student details page based on UserId
     public function viewStudent($userId)
     {
         $studObj = parent::model('user');
