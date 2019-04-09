@@ -2,7 +2,7 @@
 
 class UserContact
 {
-    protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+    protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
 
     function __construct() {}
 
@@ -13,6 +13,10 @@ class UserContact
     function getEmailAddress()
     {
         return $this->address;
+    }
+	function getAddrType()
+    {
+        return $this->addrType;
     }
     function getHomePhoneId()
     {
@@ -35,7 +39,11 @@ class UserContact
     {
         $this->mailId = $mailId;
     }
-    function setEmailAddress($address)
+    function setAddrType($addrType)
+    {
+        $this->addrType = $addrType;
+    }
+	function setEmailAddress($address)
     {
         $this->address = $address;
     }
@@ -136,6 +144,7 @@ class UserContact
         $secQuery = mysqli_query($conn, "SELECT Address, Type FROM Emails WHERE MailId = ".$emailId);
         $secQueryResult = mysqli_fetch_row($secQuery);
         $this->setEmailAddress($secQueryResult['0']);
+		$this->setAddrType($secQueryResult['1']);
         
         // Telephones
         $telephones = [];
