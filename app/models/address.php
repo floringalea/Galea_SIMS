@@ -132,7 +132,7 @@ class Address
         require '../app/config.php';
 
         // Find User's address in DB
-        $query = mysqli_query($conn, 'SELECT AddressId from UserAddress WHERE UserId = '.$userId);
+        $query = mysqli_query($conn, 'SELECT AddressId from User WHERE UserId = '.$userId);
         $qResult = mysqli_fetch_row($query);
         // AddressId now known, get address contents from DB 
         if ($query = $conn->prepare("SELECT HouseName, StreetNo, FlatNo, Street, PostCode, County, Town, City, Country from Address WHERE AddressId = ?"))

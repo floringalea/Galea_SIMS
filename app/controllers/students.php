@@ -11,39 +11,35 @@ class Students extends Controller
         // Check to see who is logged in and requesting this
         $userRole = $_SESSION['userRole'];
         // User must have role 'SA' or 'A' to access this function
-        if($userRole != "SA" && $userRole != "A") 
+        if($userRole != "SA" && $userRole != "A" && $userRole != "T") 
         {
             //exit();
-            $this->data['error'] = "Page not found.";
+            $this->data['error'] = "You are not authorized to view this page.";
             parent::view('error', $this->data);// If not authorized - call error view and pass on error
             exit();// Stop running the Students controller
         }
     
-        // Prepare the form for validation - mark the mandatory fields
-        $this->data['error']['forename'] = "*";
-        $this->data['error']['lastName'] = "*";
-        $this->data['error']['gender'] = "*";
-        $this->data['error']['DOB'] = "*";
-        $this->data['error']['UPN'] = "*";
-        $this->data['error']['UCI'] = "*";
-        $this->data['error']['nCyearActual'] = "*";
-        $this->data['error']['ethnicity'] = "*";
-        $this->data['error']['ethnicitySource'] = "*";
+        // Prepare the Add Student form for validation - mark the mandatory fields
+        $this->data['error'] = ['forename' => '*',
+								'lastName' => '*',
+								'gender' => '*',
+								'DOB' => '*',
+								'UPN' => '*',
+								'UCI' => '*',
+								'nCyearActual' => '*',
+								'ethnicity' => '*',
+								'ethnicitySource' => '*' ];
     }
 
     public function index()
     {
-        // Main method for the Students Controller
-
+        // Main function of the Students Controller
         // Get students from DB and display them within the StudentAdminDash view
         $finder = parent::model("user");
         $finder = parent::model("finder");
         
-        // If search form has been submitted and search string is not empty
-		if(isset($_POST['studentSearch']) && $_POST['studSearch'] != "")
+		if(isset($_POST['studentSearch']))
 		{
-            /* Grab the search string, pass it to finder's searchForStudent function,
-            then pass the result to a call to the studentAdminDash view*/
 			$studData = $finder->searchForStudent($_POST['studSearch']);
 			parent::view('studentAdminDash', $studData);
 		}
@@ -175,7 +171,7 @@ class Students extends Controller
         }
     }
 
-    // Method to display student details page based on UserId
+    // Function to display student details page
     public function viewStudent($userId)
     {
         $studObj = parent::model('user');
