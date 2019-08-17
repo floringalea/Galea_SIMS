@@ -38,6 +38,7 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->data['error'] = "Page not found.";
 =======
             $this->data['error'] = "You are not authorized to view this page.";
@@ -90,6 +91,9 @@ class Staff extends Controller
 =======
             $this->data['error'] = "Page not found.";
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+            $this->data['error'] = "You are not authorized to view this page.";
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
             $this->data['error'] = "You are not authorized to view this page.";
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -143,6 +147,7 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Prepare the form for validation - mark the mandatory fields
 =======
         // Prepare the Add Staff form for validation - mark the mandatory fields
@@ -195,6 +200,9 @@ class Staff extends Controller
 =======
         // Prepare the form for validation - mark the mandatory fields
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+        // Prepare the Add Staff form for validation - mark the mandatory fields
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
         // Prepare the Add Staff form for validation - mark the mandatory fields
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -263,12 +271,15 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     public function index()
     {
         // Main function of the Students Controller
         parent::view('staffAdminDash', $this->data);
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -356,6 +367,7 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -399,6 +411,8 @@ class Staff extends Controller
         // Main function of the Students Controller
         parent::view('staffAdminDash', $this->data);
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
