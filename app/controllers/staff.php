@@ -39,6 +39,7 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             $this->data['error'] = "Page not found.";
 =======
             $this->data['error'] = "You are not authorized to view this page.";
@@ -118,6 +119,9 @@ class Staff extends Controller
 =======
             $this->data['error'] = "You are not authorized to view this page.";
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+            $this->data['error'] = "You are not authorized to view this page.";
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
             parent::view('error', $this->data);// If not authorized - call error view and pass on error
             exit();// Stop running the Staff controller
         }
@@ -148,6 +152,7 @@ class Staff extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Prepare the form for validation - mark the mandatory fields
 =======
         // Prepare the Add Staff form for validation - mark the mandatory fields
@@ -227,6 +232,9 @@ class Staff extends Controller
 =======
         // Prepare the Add Staff form for validation - mark the mandatory fields
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+        // Prepare the Add Staff form for validation - mark the mandatory fields
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
         $this->data['error'] = [ 'forename' => '*',
                                  'lastName' => '*',
                                  'gender' => '*',
@@ -246,6 +254,7 @@ class Staff extends Controller
                                  'homeTelNo' => '*',
                                  'mobTelNo' => '*' ];
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -429,6 +438,29 @@ class Staff extends Controller
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+	
+	// Main function of the Students Controller
+    public function index()
+    {
+        $staff = parent::model('user');
+        $finder = parent::model("finder");
+		
+		if(isset($_POST['staffSearch']))
+		{
+			$adminData = $finder->searchForAdmin($_POST['stafSearch']);
+			parent::view('staffAdminDash', $adminData);
+		}
+		else
+		{
+			// Get all staff from DB - if no search has been performed
+			$adminData = $finder->getAdminUsersFromDB();
+			// Pass them on to the StudentAdminDash view
+			parent::view('staffAdminDash', $adminData);
+		}
+		
+        //parent::view('staffAdminDash', $this->data);
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
     }
 
     public function addStaff()

@@ -152,26 +152,56 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
     function addStudentToDB()
+=======
+    function popStudFromDb()
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
     {
-        // Adds record to 'User' table in db
-        require '../app/config.php';
+        if (isset($this->userId))
+        {
+            // Connect to db and populate fields
+            require '../app/config.php';
 
-            if ($query = $conn->prepare("INSERT INTO Student (UserId, UPN, UCI, FormerUPN, FormerSN, PrefSN, PrefFN, NCyearActual, Ethnicity, EthnicitySource, MedicalFlag, DisabFlag, EnrolStat, InCare) 
-                                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))
+            if ($query = $conn->prepare("SELECT UserId, UPN, UCI, FormerUPN, FormerSN, PrefSN, PrefFN, NCyearActual, Ethnicity, EthnicitySource, MedicalFLag, DisabFlag, EnrolStat, InCare FROM Student WHERE UserId = ?"))
             {
-                $query->bind_param("issssssissiiii", $this->userId, $this->upn, $this->uci, $this->formerUpn, $this->formerSn, $this->prefSn, $this->prefFn, $this->nCYearActual, $this->ethnicity, $this->ehtnicitySource, $this->medicalFlag, $this->disabFlag, $this->enrolStatus, $this->inCare);
+                $query->bind_param("s", $this->userId);
                 $query->execute();
+<<<<<<< HEAD
             }
             else
 <<<<<<< HEAD
+=======
+                $result = $query->get_result();
+                
+                while ($row = $result->fetch_row())
+                {
+                    $this->userId = $row['0'];
+                    $this->upn = $row['1'];
+                    $this->uci = $row['2'];
+                    $this->formerUpn = $row['3'];
+                    $this->formerSn = $row['4'];
+                    $this->prefSn = $row['5'];
+                    $this->prefFn = $row['6'];
+                    $this->nCYearActual = $row['7'];
+                    $this->ethnicity = $row['8'];
+                    $this->ehtnicitySource = $row['9'];
+                    $this->medicalFlag = $row['10'];
+                    $this->disabFlag = $row['11'];
+                    $this->enrolStatus = $row['12'];
+                    $this->inCare = $row['13'];
+                }
+
+            } else
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
             {
-                die('Error: addToDB : Could not prepare MySQLi statement');
+                die('Error: populateFromDb : Could not prepare MySQLi statement');
             }
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -303,6 +333,8 @@ class Student extends User
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
         }
     }
 
@@ -345,6 +377,7 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -396,5 +429,7 @@ class Student extends User
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
     }
 }

@@ -70,6 +70,7 @@ class User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($query = $conn->prepare("SELECT Role FROM User WHERE UserId = ?"))
 =======
             if ($query = $conn->prepare("SELECT UserId, Title, Forename, MiddleName1, MiddleName2, LastName, Age, Gender, DOB, Role FROM User WHERE UserId = ?"))
@@ -149,10 +150,14 @@ class User
 =======
             if ($query = $conn->prepare("SELECT UserId, Title, Forename, MiddleName1, MiddleName2, LastName, Age, Gender, DOB, Role FROM User WHERE UserId = ?"))
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+            if ($query = $conn->prepare("SELECT UserId, Title, Forename, MiddleName1, MiddleName2, LastName, Age, Gender, DOB, Role FROM User WHERE UserId = ?"))
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
             {
                 $query->bind_param("s", $this->userId);
                 $query->execute();
                 $result = $query->get_result();
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -322,6 +327,21 @@ class User
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+
+                while ($row = $result->fetch_row())
+                {
+                    $this->userId = $row['0'];
+                    $this->title = $row['1'];
+                    $this->forename = $row['2'];
+                    $this->middleName1 = $row['3'];
+                    $this->middleName2 = $row['4'];
+                    $this->lastName = $row['5'];
+                    $this->age = $row['6'];
+                    $this->gender = $row['7'];
+                    $this->dob = $row['8'];
+                    $this->role = $row['9'];
+>>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
                 }
             } 
             else
