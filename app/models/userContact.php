@@ -2,7 +2,9 @@
 
 class UserContact
 {
-    protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+    protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+
+    function __construct() {}
 
     function getMailId()
     {
@@ -11,6 +13,10 @@ class UserContact
     function getEmailAddress()
     {
         return $this->address;
+    }
+	function getAddrType()
+    {
+        return $this->addrType;
     }
     function getHomePhoneId()
     {
@@ -33,7 +39,11 @@ class UserContact
     {
         $this->mailId = $mailId;
     }
-    function setEmailAddress($address)
+    function setAddrType($addrType)
+    {
+        $this->addrType = $addrType;
+    }
+	function setEmailAddress($address)
     {
         $this->address = $address;
     }
@@ -53,8 +63,6 @@ class UserContact
     {
         $this->mobPhone = $mobPhone;
     }
-
-    function __construct() {}
 
     function addContToDB()
     {
@@ -123,5 +131,39 @@ class UserContact
         {   
             die('Error: addContToDB : Address already exists.');
         }
+    }
+
+    function getuserContFromDb($userId)
+    {
+        require '../app/config.php';
+        // Email
+        // Find user's email in DB
+        $query = mysqli_query($conn, 'SELECT MailId from UserEmails WHERE UserId = '.$userId);
+        $qResult = mysqli_fetch_row($query);
+        $emailId = $qResult['0'];
+        $secQuery = mysqli_query($conn, "SELECT Address, Type FROM Emails WHERE MailId = ".$emailId);
+        $secQueryResult = mysqli_fetch_row($secQuery);
+        $this->setEmailAddress($secQueryResult['0']);
+		$this->setAddrType($secQueryResult['1']);
+        
+        // Telephones
+        $telephones = [];
+        // Find user's telephone numbers in DB
+        $query = mysqli_query($conn, 'SELECT PhoneId from UserPhones WHERE UserId = '.$userId);
+        $i = 0;
+        $queryArray = [];
+        while($qResult = mysqli_fetch_row($query))
+        {
+            $queryArray[$i] = $qResult['0'];
+            $i++;
+        }
+        foreach($queryArray as $telId)
+        {
+            $secQuery = mysqli_query($conn, "SELECT PhoneType, PhoneNo FROM Phones WHERE PhoneId = ".$telId);
+            $secQueryResult = mysqli_fetch_row($secQuery);
+            $telephones[$secQueryResult['0']] = $secQueryResult['1'];
+        }
+        $this->setHomePhone($telephones['Home']);
+        $this->setMobPhone($telephones['Mobile']);
     }
 }
