@@ -17,6 +17,7 @@ class UserContact
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
 =======
     protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
@@ -93,6 +94,9 @@ class UserContact
 
     function __construct() {}
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+    protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 
     function getMailId()
     {
@@ -102,6 +106,7 @@ class UserContact
     {
         return $this->address;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -193,6 +198,8 @@ class UserContact
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     function getHomePhoneId()
     {
         return $this->homePhoneId;
@@ -214,6 +221,7 @@ class UserContact
     {
         $this->mailId = $mailId;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -307,6 +315,9 @@ class UserContact
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+    function setEmailAddress($address)
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     {
         $this->address = $address;
     }
@@ -327,6 +338,7 @@ class UserContact
         $this->mobPhone = $mobPhone;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -374,6 +386,10 @@ class UserContact
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+    function __construct() {}
+
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     function addContToDB()
     {
         require '../app/config.php';
@@ -442,6 +458,7 @@ class UserContact
             die('Error: addContToDB : Address already exists.');
         }
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -563,4 +580,6 @@ class UserContact
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 }

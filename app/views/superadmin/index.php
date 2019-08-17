@@ -20,6 +20,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <a href="#Admin"><i class="fa fa-fw fa-wrench"></i> Admin</a>
             <a href="#Curriculum"><i class="fa fa-fw fa-book"></i> Curriculum</a>
 =======
@@ -67,6 +68,10 @@
 =======
             <a href="https://www.galeadigital.com/curriculum/index"><i class="fa fa-fw fa-book"></i> Curriculum</a>
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+            <a href="#Admin"><i class="fa fa-fw fa-wrench"></i> Admin</a>
+            <a href="#Curriculum"><i class="fa fa-fw fa-book"></i> Curriculum</a>
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
             <a href="#Timetables"><i class="fa fa-fw fa-calendar"></i> Timetables</a>
             <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
         </div>
