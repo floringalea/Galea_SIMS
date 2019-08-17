@@ -152,9 +152,3 @@ body
 	text-align: 			center;
 	vertical-align: 		middle; 
 }
-/* Table links */
-td a { 
-	display: block; 
-	border: 1px solid black;
-	padding: 16px; 
-}
