@@ -146,6 +146,7 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
@@ -220,6 +221,8 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -262,6 +265,9 @@ class Student extends User
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -303,6 +309,7 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -336,6 +343,8 @@ class Student extends User
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
