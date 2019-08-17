@@ -4,7 +4,13 @@ class UserContact
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+=======
+    protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+
+    function __construct() {}
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
     protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
 
@@ -26,7 +32,10 @@ class UserContact
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 	function getAddrType()
@@ -34,6 +43,9 @@ class UserContact
         return $this->addrType;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -60,8 +72,11 @@ class UserContact
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     function setEmailAddress($address)
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     function setAddrType($addrType)
@@ -70,6 +85,9 @@ class UserContact
     }
 	function setEmailAddress($address)
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -95,8 +113,11 @@ class UserContact
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
 
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -171,7 +192,10 @@ class UserContact
     }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 
@@ -209,6 +233,9 @@ class UserContact
         $this->setMobPhone($telephones['Mobile']);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class

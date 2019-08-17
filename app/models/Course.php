@@ -6,9 +6,12 @@ class Course
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
     
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     function getCourseId()
@@ -96,6 +99,9 @@ class Course
             }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
