@@ -20,6 +20,7 @@ class Course
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
     
 =======
@@ -178,6 +179,10 @@ class Course
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+    function __construct() {}
+    
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
     function __construct() {}
     

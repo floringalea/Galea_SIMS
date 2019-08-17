@@ -20,6 +20,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     <a href="https://www.galeadigital.com/attendance/index"><i class="fa fa-fw fa-check"></i> Attendance</a>
     <a href="https://www.galeadigital.com/asessments/index"><i class="fa fa-fw fa-pencil"></i> Assessments</a>
     <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
@@ -27,6 +30,7 @@
 
 <div class=container>
     <h2>Students Admin Dashboard</h2>
+<<<<<<< HEAD
     <div class="row">
         <form class="" action="" method="POST">
             <h3>Search Students</h3>
@@ -98,6 +102,8 @@
 
 <div class=container>
     <h2>Students Admin Dashboard</h2>
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     <div class="row">
         <form class="" action="" method="POST">
             <h3>Search Students</h3>
@@ -131,6 +137,7 @@
                 <input type="submit" class="btn btn-primary form-control" name="studentSearch" value="Search" id="">
                 <!-- <p class="help-block">Help text here.</p> -->
             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 			<!-- End of Search -->
 <<<<<<< HEAD
@@ -178,10 +185,13 @@
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
         </form>
     </div>
 </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -302,6 +312,8 @@
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 <?php include_once('../app/views/templates/footer.php') ?>

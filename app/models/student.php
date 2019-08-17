@@ -142,6 +142,9 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
     function addStudentToDB()
     {
@@ -155,6 +158,7 @@ class Student extends User
                 $query->execute();
             }
             else
+<<<<<<< HEAD
             {
                 die('Error: addToDB : Could not prepare MySQLi statement');
             }
@@ -204,10 +208,13 @@ class Student extends User
                 $query->execute();
             }
             else
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
             {
                 die('Error: addToDB : Could not prepare MySQLi statement');
             }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         }
     }
@@ -271,6 +278,8 @@ class Student extends User
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     }
