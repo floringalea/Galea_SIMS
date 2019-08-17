@@ -21,6 +21,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     <a href="https://www.galeadigital.com/attendance/index"><i class="fa fa-fw fa-check"></i> Attendance</a>
@@ -187,6 +188,26 @@
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+    <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
+</div>
+
+<div class="container-fluid">
+   
+    <div class="row">
+        <form class="" action="" method="POST">
+            <div class="col-lg-6">
+				<h2>Students Admin Dashboard</h2>
+            </div>
+			<!-- Search -->
+			<div class="col-lg-5">
+				<input type="text" name="studSearch" class="form-control" id="" placeholder="Search Students">
+            </div>
+			<div class="col-lg-1">
+				<input type="submit" class="btn btn-primary form-control" name="studentSearch" value="Search" id="">
+            </div>
+			<!-- End of Search -->
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         </form>
     </div>
 </div>
@@ -208,7 +229,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -283,6 +307,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -316,4 +341,6 @@
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 <?php include_once('../app/views/templates/footer.php') ?>

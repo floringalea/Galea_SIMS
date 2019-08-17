@@ -143,6 +143,7 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
@@ -216,6 +217,44 @@ class Student extends User
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+    function popStudFromDb()
+    {
+        if (isset($this->userId))
+        {
+            // Connect to db and populate fields
+            require '../app/config.php';
+
+            if ($query = $conn->prepare("SELECT UserId, UPN, UCI, FormerUPN, FormerSN, PrefSN, PrefFN, NCyearActual, Ethnicity, EthnicitySource, MedicalFLag, DisabFlag, EnrolStat, InCare FROM Student WHERE UserId = ?"))
+            {
+                $query->bind_param("s", $this->userId);
+                $query->execute();
+                $result = $query->get_result();
+                
+                while ($row = $result->fetch_row())
+                {
+                    $this->userId = $row['0'];
+                    $this->upn = $row['1'];
+                    $this->uci = $row['2'];
+                    $this->formerUpn = $row['3'];
+                    $this->formerSn = $row['4'];
+                    $this->prefSn = $row['5'];
+                    $this->prefFn = $row['6'];
+                    $this->nCYearActual = $row['7'];
+                    $this->ethnicity = $row['8'];
+                    $this->ehtnicitySource = $row['9'];
+                    $this->medicalFlag = $row['10'];
+                    $this->disabFlag = $row['11'];
+                    $this->enrolStatus = $row['12'];
+                    $this->inCare = $row['13'];
+                }
+
+            } else
+            {
+                die('Error: populateFromDb : Could not prepare MySQLi statement');
+            }
+
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         }
     }
 
@@ -249,6 +288,7 @@ class Student extends User
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -282,5 +322,7 @@ class Student extends User
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 }
