@@ -2,7 +2,13 @@
 
 class UserContact
 {
+<<<<<<< HEAD
     protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+=======
+    protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+
+    function __construct() {}
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 
     function getMailId()
     {
@@ -12,6 +18,13 @@ class UserContact
     {
         return $this->address;
     }
+<<<<<<< HEAD
+=======
+	function getAddrType()
+    {
+        return $this->addrType;
+    }
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function getHomePhoneId()
     {
         return $this->homePhoneId;
@@ -33,7 +46,15 @@ class UserContact
     {
         $this->mailId = $mailId;
     }
+<<<<<<< HEAD
     function setEmailAddress($address)
+=======
+    function setAddrType($addrType)
+    {
+        $this->addrType = $addrType;
+    }
+	function setEmailAddress($address)
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     {
         $this->address = $address;
     }
@@ -54,8 +75,11 @@ class UserContact
         $this->mobPhone = $mobPhone;
     }
 
+<<<<<<< HEAD
     function __construct() {}
 
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function addContToDB()
     {
         require '../app/config.php';
@@ -124,4 +148,41 @@ class UserContact
             die('Error: addContToDB : Address already exists.');
         }
     }
+<<<<<<< HEAD
+=======
+
+    function getuserContFromDb($userId)
+    {
+        require '../app/config.php';
+        // Email
+        // Find user's email in DB
+        $query = mysqli_query($conn, 'SELECT MailId from UserEmails WHERE UserId = '.$userId);
+        $qResult = mysqli_fetch_row($query);
+        $emailId = $qResult['0'];
+        $secQuery = mysqli_query($conn, "SELECT Address, Type FROM Emails WHERE MailId = ".$emailId);
+        $secQueryResult = mysqli_fetch_row($secQuery);
+        $this->setEmailAddress($secQueryResult['0']);
+		$this->setAddrType($secQueryResult['1']);
+        
+        // Telephones
+        $telephones = [];
+        // Find user's telephone numbers in DB
+        $query = mysqli_query($conn, 'SELECT PhoneId from UserPhones WHERE UserId = '.$userId);
+        $i = 0;
+        $queryArray = [];
+        while($qResult = mysqli_fetch_row($query))
+        {
+            $queryArray[$i] = $qResult['0'];
+            $i++;
+        }
+        foreach($queryArray as $telId)
+        {
+            $secQuery = mysqli_query($conn, "SELECT PhoneType, PhoneNo FROM Phones WHERE PhoneId = ".$telId);
+            $secQueryResult = mysqli_fetch_row($secQuery);
+            $telephones[$secQueryResult['0']] = $secQueryResult['1'];
+        }
+        $this->setHomePhone($telephones['Home']);
+        $this->setMobPhone($telephones['Mobile']);
+    }
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

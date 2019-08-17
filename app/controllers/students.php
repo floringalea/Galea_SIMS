@@ -11,14 +11,22 @@ class Students extends Controller
         // Check to see who is logged in and requesting this
         $userRole = $_SESSION['userRole'];
         // User must have role 'SA' or 'A' to access this function
+<<<<<<< HEAD
         if($userRole != "SA" && $userRole != "A") 
         {
             //exit();
             $this->data['error'] = "Page not found.";
+=======
+        if($userRole != "SA" && $userRole != "A" && $userRole != "T") 
+        {
+            //exit();
+            $this->data['error'] = "You are not authorized to view this page.";
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
             parent::view('error', $this->data);// If not authorized - call error view and pass on error
             exit();// Stop running the Students controller
         }
     
+<<<<<<< HEAD
         // Prepare the form for validation - mark the mandatory fields
         $this->data['error']['forename'] = "*";
         $this->data['error']['lastName'] = "*";
@@ -29,6 +37,18 @@ class Students extends Controller
         $this->data['error']['nCyearActual'] = "*";
         $this->data['error']['ethnicity'] = "*";
         $this->data['error']['ethnicitySource'] = "*";
+=======
+        // Prepare the Add Student form for validation - mark the mandatory fields
+        $this->data['error'] = ['forename' => '*',
+								'lastName' => '*',
+								'gender' => '*',
+								'DOB' => '*',
+								'UPN' => '*',
+								'UCI' => '*',
+								'nCyearActual' => '*',
+								'ethnicity' => '*',
+								'ethnicitySource' => '*' ];
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 
     public function index()
@@ -37,10 +57,26 @@ class Students extends Controller
         // Get students from DB and display them within the StudentAdminDash view
         $finder = parent::model("user");
         $finder = parent::model("finder");
+<<<<<<< HEAD
         // Get all students from DB
         $studData = $finder->getStudentUsersFromDB();
         // Pass them on to the StudentAdminDash view
         parent::view('studentAdminDash', $studData);
+=======
+        
+		if(isset($_POST['studentSearch']))
+		{
+			$studData = $finder->searchForStudent($_POST['studSearch']);
+			parent::view('studentAdminDash', $studData);
+		}
+		else
+		{
+			// Get all students from DB - if no search has been performed
+			$studData = $finder->getStudentUsersFromDB();
+			// Pass them on to the StudentAdminDash view
+			parent::view('studentAdminDash', $studData);
+		}
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 
     public function addStudent()
@@ -162,11 +198,14 @@ class Students extends Controller
         }
     }
 
+<<<<<<< HEAD
     public function findStudent()
     {
         
     }
 
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     // Function to display student details page
     public function viewStudent($userId)
     {

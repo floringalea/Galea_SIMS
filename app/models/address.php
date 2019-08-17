@@ -125,4 +125,41 @@ class Address
             die('Error: addAddrToDB : Could not prepare MySQLi statement');
         }
     }
+<<<<<<< HEAD
+=======
+
+    function getuserAddressFromDb($userId)
+    {
+        // Connect to db and populate fields
+        require '../app/config.php';
+
+        // Find User's address in DB
+        $query = mysqli_query($conn, 'SELECT AddressId from User WHERE UserId = '.$userId);
+        $qResult = mysqli_fetch_row($query);
+        // AddressId now known, get address contents from DB 
+        if ($query = $conn->prepare("SELECT HouseName, StreetNo, FlatNo, Street, PostCode, County, Town, City, Country from Address WHERE AddressId = ?"))
+        {
+            $query->bind_param("s", $qResult['0']);
+            $query->execute();
+            $result = $query->get_result();
+            
+            while ($row = $result->fetch_row())
+            {
+                $this->houseName = $row['0'];
+                $this->streetNo = $row['1'];
+                $this->flatNo = $row['2'];
+                $this->street = $row['3'];
+                $this->postCode = $row['4'];
+                $this->county = $row['5'];
+                $this->town = $row['6'];
+                $this->city = $row['7'];
+                $this->country = $row['8'];
+            }
+
+        } else
+        {
+            die('Error: populateFromDb : Could not prepare MySQLi statement');
+        }
+    }
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

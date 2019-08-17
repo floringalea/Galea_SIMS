@@ -13,12 +13,20 @@ class Staff extends Controller
         // User must have role 'SA' or 'A' to access this function
         if($userRole != "SA" && $userRole != "A") 
         {
+<<<<<<< HEAD
             $this->data['error'] = "Page not found.";
+=======
+            $this->data['error'] = "You are not authorized to view this page.";
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
             parent::view('error', $this->data);// If not authorized - call error view and pass on error
             exit();// Stop running the Staff controller
         }
 
+<<<<<<< HEAD
         // Prepare the form for validation - mark the mandatory fields
+=======
+        // Prepare the Add Staff form for validation - mark the mandatory fields
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         $this->data['error'] = [ 'forename' => '*',
                                  'lastName' => '*',
                                  'gender' => '*',
@@ -38,11 +46,35 @@ class Staff extends Controller
                                  'homeTelNo' => '*',
                                  'mobTelNo' => '*' ];
     }
+<<<<<<< HEAD
 
     public function index()
     {
         // Main function of the Students Controller
         parent::view('staffAdminDash', $this->data);
+=======
+	
+	// Main function of the Students Controller
+    public function index()
+    {
+        $staff = parent::model('user');
+        $finder = parent::model("finder");
+		
+		if(isset($_POST['staffSearch']))
+		{
+			$adminData = $finder->searchForAdmin($_POST['stafSearch']);
+			parent::view('staffAdminDash', $adminData);
+		}
+		else
+		{
+			// Get all staff from DB - if no search has been performed
+			$adminData = $finder->getAdminUsersFromDB();
+			// Pass them on to the StudentAdminDash view
+			parent::view('staffAdminDash', $adminData);
+		}
+		
+        //parent::view('staffAdminDash', $this->data);
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 
     public function addStaff()

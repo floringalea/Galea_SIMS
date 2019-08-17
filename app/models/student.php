@@ -126,6 +126,7 @@ class Student extends User
         $this->inCare = $inCare;
     }
 
+<<<<<<< HEAD
     // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
     function addStudentToDB()
     {
@@ -143,5 +144,62 @@ class Student extends User
                 die('Error: addToDB : Could not prepare MySQLi statement');
             }
 
+=======
+    function popStudFromDb()
+    {
+        if (isset($this->userId))
+        {
+            // Connect to db and populate fields
+            require '../app/config.php';
+
+            if ($query = $conn->prepare("SELECT UserId, UPN, UCI, FormerUPN, FormerSN, PrefSN, PrefFN, NCyearActual, Ethnicity, EthnicitySource, MedicalFLag, DisabFlag, EnrolStat, InCare FROM Student WHERE UserId = ?"))
+            {
+                $query->bind_param("s", $this->userId);
+                $query->execute();
+                $result = $query->get_result();
+                
+                while ($row = $result->fetch_row())
+                {
+                    $this->userId = $row['0'];
+                    $this->upn = $row['1'];
+                    $this->uci = $row['2'];
+                    $this->formerUpn = $row['3'];
+                    $this->formerSn = $row['4'];
+                    $this->prefSn = $row['5'];
+                    $this->prefFn = $row['6'];
+                    $this->nCYearActual = $row['7'];
+                    $this->ethnicity = $row['8'];
+                    $this->ehtnicitySource = $row['9'];
+                    $this->medicalFlag = $row['10'];
+                    $this->disabFlag = $row['11'];
+                    $this->enrolStatus = $row['12'];
+                    $this->inCare = $row['13'];
+                }
+
+            } else
+            {
+                die('Error: populateFromDb : Could not prepare MySQLi statement');
+            }
+
+        }
+    }
+
+    // Add Student record to DB - oinly works once all the [mandatory] properties have been populated
+    function addStudentToDB()
+    {
+        // Adds record to 'User' table in db
+        require '../app/config.php';
+
+        if ($query = $conn->prepare("INSERT INTO Student (UserId, UPN, UCI, FormerUPN, FormerSN, PrefSN, PrefFN, NCyearActual, Ethnicity, EthnicitySource, MedicalFlag, DisabFlag, EnrolStat, InCare) 
+                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"))
+        {
+            $query->bind_param("issssssissiiii", $this->userId, $this->upn, $this->uci, $this->formerUpn, $this->formerSn, $this->prefSn, $this->prefFn, $this->nCYearActual, $this->ethnicity, $this->ehtnicitySource, $this->medicalFlag, $this->disabFlag, $this->enrolStatus, $this->inCare);
+            $query->execute();
+        }
+        else
+        {
+            die('Error: addToDB : Could not prepare MySQLi statement');
+        }
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 }
