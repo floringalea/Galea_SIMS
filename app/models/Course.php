@@ -31,6 +31,7 @@ class Course
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
     
 =======
@@ -149,6 +150,8 @@ class Course
     function __construct() {}
     
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function getCourseId()
     {
         return $this->courseId;
@@ -217,7 +220,10 @@ class Course
 
     function __construct() {}
     
+<<<<<<< HEAD
 >>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function addCourseToDB()
     {
         // Adds record to 'Course' table in db
@@ -258,6 +264,7 @@ class Course
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -315,4 +322,6 @@ class Course
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

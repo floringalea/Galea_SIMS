@@ -31,6 +31,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
     <a href="https://www.galeadigital.com/attendance/index"><i class="fa fa-fw fa-check"></i> Attendance</a>
@@ -201,6 +202,8 @@
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
 </div>
 
@@ -219,6 +222,7 @@
 				<input type="submit" class="btn btn-primary form-control" name="studentSearch" value="Search" id="">
             </div>
 			<!-- End of Search -->
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -247,6 +251,8 @@
 =======
 			<!-- End of Search -->
 >>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         </form>
     </div>
 </div>
@@ -278,6 +284,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -327,6 +334,8 @@
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 <div class="container-fluid">
 	<!-- Students table -->
     <table class="table">
@@ -383,6 +392,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -436,4 +446,6 @@
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of 9fd96b8... Revert "Added function to pull user's address details from DB based on user's ID"
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 <?php include_once('../app/views/templates/footer.php') ?>
