@@ -33,11 +33,14 @@ class Students extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         if($userRole != "SA" && $userRole != "A") 
         {
             //exit();
             $this->data['error'] = "Page not found.";
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -99,6 +102,7 @@ class Students extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -140,6 +144,8 @@ class Students extends Controller
             //exit();
             $this->data['error'] = "Page not found.";
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -154,6 +160,7 @@ class Students extends Controller
             exit();// Stop running the Students controller
         }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -231,6 +238,8 @@ class Students extends Controller
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         // Prepare the Add Student form for validation - mark the mandatory fields
         $this->data['error'] = ['forename' => '*',
 								'lastName' => '*',
@@ -260,6 +269,7 @@ class Students extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -293,6 +303,8 @@ class Students extends Controller
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -311,6 +323,7 @@ class Students extends Controller
         // Get students from DB and display them within the StudentAdminDash view
         $finder = parent::model("user");
         $finder = parent::model("finder");
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -382,6 +395,8 @@ class Students extends Controller
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         
 		if(isset($_POST['studentSearch']))
 		{
@@ -414,6 +429,7 @@ class Students extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -447,6 +463,8 @@ class Students extends Controller
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
@@ -600,6 +618,7 @@ class Students extends Controller
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
@@ -645,6 +664,8 @@ class Students extends Controller
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
 =======
 >>>>>>> parent of 8caa1da... Added function to pull user's address details from DB based on user's ID
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
