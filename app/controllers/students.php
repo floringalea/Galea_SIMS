@@ -12,20 +12,27 @@ class Students extends Controller
         $userRole = $_SESSION['userRole'];
         // User must have role 'SA' or 'A' to access this function
 <<<<<<< HEAD
+<<<<<<< HEAD
         if($userRole != "SA" && $userRole != "A") 
         {
             //exit();
             $this->data['error'] = "Page not found.";
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         if($userRole != "SA" && $userRole != "A" && $userRole != "T") 
         {
             //exit();
             $this->data['error'] = "You are not authorized to view this page.";
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
             parent::view('error', $this->data);// If not authorized - call error view and pass on error
             exit();// Stop running the Students controller
         }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
         // Prepare the form for validation - mark the mandatory fields
         $this->data['error']['forename'] = "*";
@@ -38,6 +45,8 @@ class Students extends Controller
         $this->data['error']['ethnicity'] = "*";
         $this->data['error']['ethnicitySource'] = "*";
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         // Prepare the Add Student form for validation - mark the mandatory fields
         $this->data['error'] = ['forename' => '*',
 								'lastName' => '*',
@@ -48,6 +57,9 @@ class Students extends Controller
 								'nCyearActual' => '*',
 								'ethnicity' => '*',
 								'ethnicitySource' => '*' ];
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 
@@ -58,11 +70,14 @@ class Students extends Controller
         $finder = parent::model("user");
         $finder = parent::model("finder");
 <<<<<<< HEAD
+<<<<<<< HEAD
         // Get all students from DB
         $studData = $finder->getStudentUsersFromDB();
         // Pass them on to the StudentAdminDash view
         parent::view('studentAdminDash', $studData);
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
         
 		if(isset($_POST['studentSearch']))
 		{
@@ -76,6 +91,9 @@ class Students extends Controller
 			// Pass them on to the StudentAdminDash view
 			parent::view('studentAdminDash', $studData);
 		}
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     }
 
@@ -199,11 +217,14 @@ class Students extends Controller
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function findStudent()
     {
         
     }
 
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     // Function to display student details page

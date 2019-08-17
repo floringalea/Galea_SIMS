@@ -126,7 +126,10 @@ class Address
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 
     function getuserAddressFromDb($userId)
     {
@@ -161,5 +164,8 @@ class Address
             die('Error: populateFromDb : Could not prepare MySQLi statement');
         }
     }
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

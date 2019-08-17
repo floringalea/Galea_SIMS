@@ -1,8 +1,11 @@
 <?php include_once('../app/views/templates/header.php') ?>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h2>Staff Admin Dashboard</h2>
 <hr>
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 <div class="sidebar">
@@ -14,7 +17,10 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 <div class="container-fluid">
    
     <div class="row">
@@ -67,5 +73,8 @@
     </table>
 </div>
 
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 <?php include_once('../app/views/templates/footer.php') ?>

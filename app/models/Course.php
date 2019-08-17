@@ -5,9 +5,12 @@ class Course
     protected $courseId, $name, $teacherId, $subjectId, $year, $startDate, $room, $sessionsTotal;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
     
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function getCourseId()
     {
         return $this->courseId;
@@ -92,5 +95,8 @@ class Course
                 die('Error: addToDB : Could not add new Teacher record to database.');
             }
     }
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

@@ -5,6 +5,7 @@
     <a href="https://www.galeadigital.com/students/addStudent"><i class="fa fa-fw fa-user"></i> Add Student</a>
     <a href="https://www.galeadigital.com/students/importStudent"><i class="fa fa-fw fa-download"></i> Import Student(s)</a>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <a href="https://www.galeadigital.com/attendance/index"><i class="fa fa-fw fa-check"></i> Attendance</a>
     <a href="https://www.galeadigital.com/asessments/index"><i class="fa fa-fw fa-pencil"></i> Assessments</a>
     <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
@@ -46,6 +47,8 @@
                 <!-- <p class="help-block">Help text here.</p> -->
             </div>
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     <a href="https://www.galeadigital.com/userauth/logout"><i class="fa fa-fw fa-lock"></i> Logout</a>
 </div>
 
@@ -64,13 +67,19 @@
 				<input type="submit" class="btn btn-primary form-control" name="studentSearch" value="Search" id="">
             </div>
 			<!-- End of Search -->
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
         </form>
     </div>
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 <div class="container-fluid">
 	<!-- Students table -->
     <table class="table">
@@ -103,5 +112,8 @@
     </table>
 </div>
 
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 <?php include_once('../app/views/templates/footer.php') ?>

@@ -3,7 +3,13 @@
 class UserContact
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected $mailId, $address, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+=======
+    protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
+
+    function __construct() {}
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
     protected $mailId, $address, $addrType, $homePhoneId, $homePhone, $mobPhoneId, $mobPhone;
 
@@ -19,11 +25,17 @@ class UserContact
         return $this->address;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 	function getAddrType()
     {
         return $this->addrType;
     }
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     function getHomePhoneId()
     {
@@ -47,13 +59,19 @@ class UserContact
         $this->mailId = $mailId;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     function setEmailAddress($address)
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
     function setAddrType($addrType)
     {
         $this->addrType = $addrType;
     }
 	function setEmailAddress($address)
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     {
         $this->address = $address;
@@ -76,8 +94,11 @@ class UserContact
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     function __construct() {}
 
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
     function addContToDB()
@@ -149,7 +170,10 @@ class UserContact
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 
     function getuserContFromDb($userId)
     {
@@ -184,5 +208,8 @@ class UserContact
         $this->setHomePhone($telephones['Home']);
         $this->setMobPhone($telephones['Mobile']);
     }
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
 }

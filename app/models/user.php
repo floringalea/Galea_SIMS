@@ -45,7 +45,11 @@ class User
             require '../app/config.php';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             if ($query = $conn->prepare("SELECT Role FROM User WHERE UserId = ?"))
+=======
+            if ($query = $conn->prepare("SELECT UserId, Title, Forename, MiddleName1, MiddleName2, LastName, Age, Gender, DOB, Role FROM User WHERE UserId = ?"))
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 =======
             if ($query = $conn->prepare("SELECT UserId, Title, Forename, MiddleName1, MiddleName2, LastName, Age, Gender, DOB, Role FROM User WHERE UserId = ?"))
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
@@ -54,10 +58,13 @@ class User
                 $query->execute();
                 $result = $query->get_result();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 while ($row = $result->fetch_row())
                 {
                     echo($row['0']);
 =======
+=======
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
 
                 while ($row = $result->fetch_row())
                 {
@@ -71,6 +78,9 @@ class User
                     $this->gender = $row['7'];
                     $this->dob = $row['8'];
                     $this->role = $row['9'];
+<<<<<<< HEAD
+>>>>>>> parent of d0c237b... Created 'FormGroup' class
+=======
 >>>>>>> parent of d0c237b... Created 'FormGroup' class
                 }
             } 
